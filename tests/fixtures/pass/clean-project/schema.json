@@ -1,0 +1,7 @@
+{
+  "table": "users",
+  "fields": {
+    "idcard": { "type": "string", "classification": "核心级", "sensitivity": "L4", "public": false },
+    "phone":  { "type": "string", "classification": "敏感级", "sensitivity": "L3", "public": false }
+  }
+}

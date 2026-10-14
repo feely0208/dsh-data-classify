@@ -1,0 +1,16 @@
+{
+  "id": "CLASSIFY-SENSITIVE-UNMARKED",
+  "title": "出现敏感数据，但找不到分级标注",
+  "severity": "high",
+  "source": "《数据安全法》第二十一条 —— 国家建立数据分类分级保护制度，根据数据在经济社会发展中的重要程度，以及一旦遭到篡改、破坏、泄露或者非法获取、非法利用对国家安全、公共利益或者个人、组织合法权益造成的危害程度，对数据实行分类分级保护",
+  "advice": "代码或数据文件里出现了敏感数据（身份证、银行卡、手机号、健康、金融、位置等），但仓库里找不到任何**分级标注**（如「公开/内部/敏感/核心」或 L1-L4）。数据安全法第 21 条要求建立分类分级保护制度 —— 没有分级，就无法对不同级别的数据施加不同的保护强度。建议：在数据字典或字段注释里标注级别。",
+  "check": {
+    "type": "files-lack",
+    "pattern": "分级|密级|公开级|内部级|敏感级|核心级|L1|L2|L3|L4|classification|dataLevel|data_level|sensitivity|confidential",
+    "flags": "i",
+    "paths": ["**/*.json", "**/*.js", "**/*.mjs", "**/*.ts", "**/*.py", "**/*.go", "**/*.java", "**/*.sql",
+              "**/*.yml", "**/*.yaml", "**/*.md", "**/*.csv"],
+    "when": "idcard|id_card|身份证|bankcard|bank_card|银行卡|phone|手机号|medical|医疗|health|健康|salary|薪资|geolocation|行踪",
+    "evidence": "出现敏感数据但找不到任何分级标注"
+  }
+}

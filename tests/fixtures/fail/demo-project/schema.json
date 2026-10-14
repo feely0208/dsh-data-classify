@@ -1,0 +1,8 @@
+{
+  "table": "users",
+  "fields": {
+    "idcard": { "type": "string", "public": true },
+    "phone":  { "type": "string", "public": true },
+    "salary": { "type": "number", "public": true }
+  }
+}

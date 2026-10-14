@@ -1,0 +1,14 @@
+{
+  "id": "CLASSIFY-NO-POLICY",
+  "title": "找不到数据分类分级制度文档",
+  "severity": "medium",
+  "source": "《数据安全法》第二十一条 —— 国家建立数据分类分级保护制度；《网络数据安全管理条例》—— 网络数据处理者应建立数据分类分级制度",
+  "advice": "文档里找不到数据分类分级制度。数据安全法第 21 条把分类分级列为**国家层面的制度要求**，落到组织就是「要有自己的分级标准和操作办法」。最低限度：在 docs/ 写一份分级标准 + 各级别的保护措施。",
+  "check": {
+    "type": "files-lack",
+    "pattern": "数据分类分级|分类分级|数据分级|数据密级|数据等级|分级标准|data classification|data grading",
+    "flags": "i",
+    "paths": ["README.md", "SECURITY.md", "docs/*.md", "docs/**/*.md", "*.md", "compliance/*", "policy/*"],
+    "evidence": "文档里找不到数据分类分级制度"
+  }
+}

@@ -1,0 +1,3 @@
+field,level,storage,owner
+idcard,核心级,users.idcard,安全组
+phone,敏感级,users.phone,安全组

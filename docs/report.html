@@ -1,0 +1,91 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<title>深鲸守护 · 数据分类分级 · 检查报告</title>
+<style>
+  :root{--bg:#0b1018;--fg:#e6edf6;--muted:#8b9bb4;--line:#1e2a3a;--card:#121a26}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.6 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding:32px}
+  .wrap{max-width:1180px;margin:0 auto}
+  h1{font-size:22px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .card .k{color:var(--muted);font-size:12px;margin-bottom:6px}
+  .card .v{font-size:20px;font-weight:700}
+  .chip{display:inline-block;padding:3px 10px;border-radius:999px;margin:0 6px 6px 0;font-size:13px;
+        border:1px solid var(--c);color:var(--c)}
+  .chip b{font-size:15px}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13px}
+  th{color:var(--muted);font-weight:500;background:#0e1622}
+  tr:last-child td{border-bottom:0}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c);margin-right:6px}
+  .t{font-weight:600;margin-bottom:2px}
+  .src{color:var(--muted);font-size:12px}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#7dd3fc}
+  .ev{color:var(--muted);font-size:12px;margin-top:2px;word-break:break-all}
+  .adv{color:var(--muted);font-size:12px;max-width:260px}
+  .ok{background:#0d2b1a;border:1px solid #1d7a4a;color:#4ade80;padding:16px;border-radius:12px;margin-bottom:20px}
+  .warn{background:#2b1f0d;border:1px solid #a16207;color:#fbbf24;padding:12px 16px;border-radius:12px;margin-bottom:20px;font-size:13px}
+  footer{color:var(--muted);font-size:12px;margin-top:22px;padding-top:14px;border-top:1px solid var(--line)}
+  footer p{margin:3px 0}
+</style></head><body><div class="wrap">
+  <h1>深鲸守护 · 数据分类分级</h1>
+  <div class="sub">查数据有没有分级标注与清单 —— 数据安全法 21 条要求建立分类分级制度</div>
+
+  <div class="cards">
+    <div class="card"><div class="k">扫描文件</div><div class="v">2</div></div>
+    <div class="card"><div class="k">检查规则</div><div class="v">4<span style="font-size:13px;color:var(--muted)">/4</span></div></div>
+    <div class="card"><div class="k">命中</div><div class="v" style="color:#ea580c">6</div></div>
+    <div class="card"><div class="k">已跳过目录</div><div class="v">0</div></div>
+  </div>
+
+  
+  <div class="warn">⚠️ 扫描到的文件很少，请确认扫描目录是否正确 —— <b>不要因「全绿」就放心</b>。</div>
+  
+
+  <div style="margin-bottom:16px"><span class="chip" style="--c:#ea580c">高 <b>1</b></span><span class="chip" style="--c:#ca8a04">中 <b>5</b></span></div>
+       <table><thead><tr><th>级别</th><th>问题</th><th>位置 / 证据</th><th>建议</th></tr></thead>
+       <tbody>
+      <tr class="sev-high">
+        <td><span class="dot" style="--c:#ea580c"></span>高</td>
+        <td><div class="t">出现敏感数据，但找不到分级标注</div><div class="src">《数据安全法》第二十一条 —— 国家建立数据分类分级保护制度，根据数据在经济社会发展中的重要程度，以及一旦遭到篡改、破坏、泄露或者非法获取、非法利用对国家安全、公共利益或者个人、组织合法权益造成的危害程度，对数据实行分类分级保护</div></td>
+        <td><code>**/*.json</code><div class="ev">已检查 2 个文件，均未提到</div></td>
+        <td class="adv">代码或数据文件里出现了敏感数据（身份证、银行卡、手机号、健康、金融、位置等），但仓库里找不到任何<b>分级标注</b>（如「公开/内部/敏感/核心」或 L1-L4）。数据安全法第 21 条要求建立分类分级保护制度 —— 没有分级，就无法对不同级别的数据施加不同的保护强度。建议：在数据字典或字段注释里标注级别。</td>
+      </tr>
+      <tr class="sev-medium">
+        <td><span class="dot" style="--c:#ca8a04"></span>中</td>
+        <td><div class="t">找不到数据分类分级制度文档</div><div class="src">《数据安全法》第二十一条 —— 国家建立数据分类分级保护制度；《网络数据安全管理条例》—— 网络数据处理者应建立数据分类分级制度</div></td>
+        <td><code>README.md</code><div class="ev">以下文件都不存在：README.md / SECURITY.md / docs/*.md …</div></td>
+        <td class="adv">文档里找不到数据分类分级制度。数据安全法第 21 条把分类分级列为<b>国家层面的制度要求</b>，落到组织就是「要有自己的分级标准和操作办法」。最低限度：在 docs/ 写一份分级标准 + 各级别的保护措施。</td>
+      </tr>
+      <tr class="sev-medium">
+        <td><span class="dot" style="--c:#ca8a04"></span>中</td>
+        <td><div class="t">找不到数据资产清单</div><div class="src">《数据安全法》第二十一条 —— 数据分类分级保护；《个人信息保护法》第五十一条 —— 应对个人信息处理活动进行记录</div></td>
+        <td><code>README.md</code><div class="ev">以下文件都不存在：README.md / SECURITY.md / docs/*.md …</div></td>
+        <td class="adv">仓库里找不到数据资产清单（有哪些数据、存在哪、什么级别、谁负责）。没有清单就无法回答「我们有哪些数据」—— 而这正是分级保护、出境评估、泄露应急的<b>共同前提</b>。建议：一份清单表格，至少含字段名、级别、存储位置、负责人。</td>
+      </tr>
+      <tr class="sev-medium">
+        <td><span class="dot" style="--c:#ca8a04"></span>中</td>
+        <td><div class="t">所有数据被标为公开级</div><div class="src">《数据安全法》第二十一条 —— 分类分级保护应体现危害程度差异；《个人信息保护法》第五十一条 —— 应根据处理目的、方式、种类、影响采取相应保护措施</div></td>
+        <td><code>schema.json:4</code><div class="ev">&quot;public&quot;: true</div></td>
+        <td class="adv">分级标注里<b>只有「公开」一个级别</b> —— 意味着所有数据都按最低保护强度对待。这通常不是真的「我们只有公开数据」，而是<b>分级工作没做完</b>（先标了个默认值）。分类分级的价值在于<b>差异</b>：不同级别对应不同的加密、访问控制、留存要求。</td>
+      </tr>
+      <tr class="sev-medium">
+        <td><span class="dot" style="--c:#ca8a04"></span>中</td>
+        <td><div class="t">所有数据被标为公开级</div><div class="src">《数据安全法》第二十一条 —— 分类分级保护应体现危害程度差异；《个人信息保护法》第五十一条 —— 应根据处理目的、方式、种类、影响采取相应保护措施</div></td>
+        <td><code>schema.json:5</code><div class="ev">&quot;public&quot;: true</div></td>
+        <td class="adv">分级标注里<b>只有「公开」一个级别</b> —— 意味着所有数据都按最低保护强度对待。这通常不是真的「我们只有公开数据」，而是<b>分级工作没做完</b>（先标了个默认值）。分类分级的价值在于<b>差异</b>：不同级别对应不同的加密、访问控制、留存要求。</td>
+      </tr>
+      <tr class="sev-medium">
+        <td><span class="dot" style="--c:#ca8a04"></span>中</td>
+        <td><div class="t">所有数据被标为公开级</div><div class="src">《数据安全法》第二十一条 —— 分类分级保护应体现危害程度差异；《个人信息保护法》第五十一条 —— 应根据处理目的、方式、种类、影响采取相应保护措施</div></td>
+        <td><code>schema.json:6</code><div class="ev">&quot;public&quot;: true</div></td>
+        <td class="adv">分级标注里<b>只有「公开」一个级别</b> —— 意味着所有数据都按最低保护强度对待。这通常不是真的「我们只有公开数据」，而是<b>分级工作没做完</b>（先标了个默认值）。分类分级的价值在于<b>差异</b>：不同级别对应不同的加密、访问控制、留存要求。</td>
+      </tr></tbody></table>
+
+  <footer>
+    <p>扫描范围：<code>tests/fixtures/fail/demo-project</code> · 2 个文件</p>
+    <p>规则库：— · 生成时间：2026-10-14 03:13:39</p>
+    <p></p>
+  </footer>
+</div></body></html>

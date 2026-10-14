@@ -1,0 +1,4 @@
+# @deepwhale-cn/dsh-data-classify 的组合层
+- insert:
+    - id: data-classify
+      name: '@deepwhale-cn/dsh-data-classify'

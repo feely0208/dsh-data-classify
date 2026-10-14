@@ -1,0 +1,14 @@
+{
+  "id": "CLASSIFY-NO-INVENTORY",
+  "title": "找不到数据资产清单",
+  "severity": "medium",
+  "source": "《数据安全法》第二十一条 —— 数据分类分级保护；《个人信息保护法》第五十一条 —— 应对个人信息处理活动进行记录",
+  "advice": "仓库里找不到数据资产清单（有哪些数据、存在哪、什么级别、谁负责）。没有清单就无法回答「我们有哪些数据」—— 而这正是分级保护、出境评估、泄露应急的**共同前提**。建议：一份清单表格，至少含字段名、级别、存储位置、负责人。",
+  "check": {
+    "type": "files-lack",
+    "pattern": "数据清单|数据资产|数据台账|数据字典|字段清单|data inventory|data map|data catalogue|数据地图",
+    "flags": "i",
+    "paths": ["README.md", "SECURITY.md", "docs/*.md", "docs/**/*.md", "*.md", "compliance/*", "**/*.csv"],
+    "evidence": "找不到数据资产清单或数据字典"
+  }
+}
