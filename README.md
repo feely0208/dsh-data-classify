@@ -50,6 +50,8 @@ dsh plugin --profile web add @deepwhale-cn/dsh-data-classify
 npx @deepwhale-cn/dsh-data-classify
 ```
 
+![dsh-data-classify 的检查报告示例](https://raw.githubusercontent.com/feely0208/dsh-data-classify/main/docs/report.png)
+
 ## 用法
 
 ```bash
