@@ -50,7 +50,11 @@ dsh plugin --profile web add @deepwhale-cn/dsh-data-classify
 npx @deepwhale-cn/dsh-data-classify
 ```
 
-![dsh-data-classify 的检查报告示例](https://www.deepwhale.org.cn/plugin-assets/dsh-data-classify/report.png)
+![dsh-data-classify 检查报告示例](https://www.deepwhale.org.cn/plugin-assets/dsh-data-classify/report.png)
+
+![dsh-data-classify 演示模式输出](https://www.deepwhale.org.cn/plugin-assets/dsh-data-classify/demo.png)
+
+![dsh-data-classify 规则与依据](https://www.deepwhale.org.cn/plugin-assets/dsh-data-classify/rules.png)
 
 ## 用法
 
