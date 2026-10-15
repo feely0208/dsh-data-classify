@@ -1,6 +1,6 @@
 {
   "name": "@deepwhale-cn/dsh-data-classify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "查数据有没有分级标注与清单 —— 数据安全法 21 条要求建立分类分级制度",
   "type": "module",
   "license": "MIT",
@@ -22,12 +22,13 @@
   ],
   "files": [
     "lib",
-    "skill",
     "bin",
     "rules",
-    "docs",
+    "skill",
     "cordis.patch.yml",
-    "README.md"
+    "tests/fixtures",
+    "README.md",
+    "LICENSE"
   ],
   "main": "./lib/index.js",
   "exports": {

@@ -1,0 +1,75 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; background:#0d0f13; display:flex; justify-content:center;
+         align-items:flex-start; padding:22px; font-family:-apple-system,"PingFang SC",
+         "Helvetica Neue",sans-serif; }
+  .win { width:1180px; border-radius:11px; overflow:hidden;
+          box-shadow:0 14px 44px rgba(0,0,0,.55); }
+  .bar { background:#2a2d34; padding:11px 15px; display:flex; align-items:center; gap:9px; }
+  .dot { width:12px; height:12px; border-radius:50%; }
+  .t { margin-left:11px; color:#7a8290; font-size:13px; letter-spacing:.02em; }
+  .term { background:#1b1d22; padding:20px 22px 24px; font-family:"SF Mono",Menlo,Consolas,
+           "PingFang SC",monospace; font-size:13.5px; line-height:1.72; }
+  .cmd { color:#5ee08a; margin-bottom:13px; font-size:13.5px; }
+  .cmd b { color:#fff; font-weight:600; }
+  .l { white-space:pre-wrap; word-break:break-word; }
+</style></head><body>
+  <div class="win">
+    <div class="bar">
+      <span class="dot" style="background:#ff5f57"></span>
+      <span class="dot" style="background:#febc2e"></span>
+      <span class="dot" style="background:#28c840"></span>
+      <span class="t">dsh-data-classify · demo</span>
+    </div>
+    <div class="term">
+      <div class="cmd">$ <b>dsh-data-classify --demo</b></div>
+      <div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  【演示模式】使用内置样本，不是你的真实项目。</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  深鲸守护 · 数据分类分级 v0.1.0</span></div>
+<div class="l"><span style="color:#d8dee9">  ──────────────────────────────────────────────────────────────────</span></div>
+<div class="l"><span style="color:#d8dee9">  扫描范围   内置演示样本 · 故意有问题的项目</span></div>
+<div class="l"><span style="color:#d8dee9">             2 个文件 · 0 个目录已跳过</span></div>
+<div class="l"><span style="color:#d8dee9">  检查规则   4/4 条</span></div>
+<div class="l"><span style="color:#ffd166">  命中       6 条</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#ff6b6b">  【高】1 条</span></div>
+<div class="l"><span style="color:#7a8290">    · 出现敏感数据，但找不到分级标注</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  **/*.json</span></div>
+<div class="l"><span style="color:#7a8290">      证据  已检查 2 个文件，均未提到</span></div>
+<div class="l"><span style="color:#7a8290">      依据  《数据安全法》第二十一条 —— 国家建立数据分类分级保护制度，根据数据在经济社会发展中的重要程度，以及一旦遭到篡改、破坏、泄露或者非法获取、非法利用对国家安全、公共利益或者个人、组织合法权益造成的危害程度，对数据实行分类分级保护</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  代码或数据文件里出现了敏感数据（身份证、银行卡、手机号、健康、金融、位置等），但仓库里找不到任何**分级标注**（如「公开/内部/敏感/核心」或 L1-L4）。数据安全法第 21 条要求建立分类分级保护制度 —— 没有分级，就无法对不同级别的数据施加不同的保护强度。建议：在数据字典或字段注释里标注级别。</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#ffd166">  【中】5 条</span></div>
+<div class="l"><span style="color:#7a8290">    · 找不到数据分类分级制度文档</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  README.md</span></div>
+<div class="l"><span style="color:#7a8290">      证据  以下文件都不存在：README.md / SECURITY.md / docs/*.md …</span></div>
+<div class="l"><span style="color:#7a8290">      依据  《数据安全法》第二十一条 —— 国家建立数据分类分级保护制度；《网络数据安全管理条例》—— 网络数据处理者应建立数据分类分级制度</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  文档里找不到数据分类分级制度。数据安全法第 21 条把分类分级列为**国家层面的制度要求**，落到组织就是「要有自己的分级标准和操作办法」。最低限度：在 docs/ 写一份分级标准 + 各级别的保护措施。</span></div>
+<div class="l"><span style="color:#7a8290">    · 找不到数据资产清单</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  README.md</span></div>
+<div class="l"><span style="color:#7a8290">      证据  以下文件都不存在：README.md / SECURITY.md / docs/*.md …</span></div>
+<div class="l"><span style="color:#7a8290">      依据  《数据安全法》第二十一条 —— 数据分类分级保护；《个人信息保护法》第五十一条 —— 应对个人信息处理活动进行记录</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  仓库里找不到数据资产清单（有哪些数据、存在哪、什么级别、谁负责）。没有清单就无法回答「我们有哪些数据」—— 而这正是分级保护、出境评估、泄露应急的**共同前提**。建议：一份清单表格，至少含字段名、级别、存储位置、负责人。</span></div>
+<div class="l"><span style="color:#7a8290">    · 所有数据被标为公开级</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  schema.json:4</span></div>
+<div class="l"><span style="color:#7a8290">      证据  &quot;public&quot;: true</span></div>
+<div class="l"><span style="color:#7a8290">      依据  《数据安全法》第二十一条 —— 分类分级保护应体现危害程度差异；《个人信息保护法》第五十一条 —— 应根据处理目的、方式、种类、影响采取相应保护措施</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  分级标注里**只有「公开」一个级别** —— 意味着所有数据都按最低保护强度对待。这通常不是真的「我们只有公开数据」，而是**分级工作没做完**（先标了个默认值）。分类分级的价值在于**差异**：不同级别对应不同的加密、访问控制、留存要求。</span></div>
+<div class="l"><span style="color:#7a8290">    · 所有数据被标为公开级</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  schema.json:5</span></div>
+<div class="l"><span style="color:#7a8290">      证据  &quot;public&quot;: true</span></div>
+<div class="l"><span style="color:#7a8290">      依据  《数据安全法》第二十一条 —— 分类分级保护应体现危害程度差异；《个人信息保护法》第五十一条 —— 应根据处理目的、方式、种类、影响采取相应保护措施</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  分级标注里**只有「公开」一个级别** —— 意味着所有数据都按最低保护强度对待。这通常不是真的「我们只有公开数据」，而是**分级工作没做完**（先标了个默认值）。分类分级的价值在于**差异**：不同级别对应不同的加密、访问控制、留存要求。</span></div>
+<div class="l"><span style="color:#7a8290">    · 所有数据被标为公开级</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  schema.json:6</span></div>
+<div class="l"><span style="color:#7a8290">      证据  &quot;public&quot;: true</span></div>
+<div class="l"><span style="color:#7a8290">      依据  《数据安全法》第二十一条 —— 分类分级保护应体现危害程度差异；《个人信息保护法》第五十一条 —— 应根据处理目的、方式、种类、影响采取相应保护措施</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  分级标注里**只有「公开」一个级别** —— 意味着所有数据都按最低保护强度对待。这通常不是真的「我们只有公开数据」，而是**分级工作没做完**（先标了个默认值）。分类分级的价值在于**差异**：不同级别对应不同的加密、访问控制、留存要求。</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  ──────────────────────────────────────────────────────────────────</span></div>
+    </div>
+  </div>
+</body></html>
