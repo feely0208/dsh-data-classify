@@ -1,5 +1,7 @@
 # @deepwhale-cn/dsh-data-classify
 
+[![dshfind 收录](https://dshfind.com/api/badge/feely0208/dsh-data-classify?lang=zh)](https://dshfind.com/zh/plugins/feely0208/dsh-data-classify)
+
 **数据分类分级** —— 查数据有没有分级标注与资产清单。
 
 ## 不装它会怎样
