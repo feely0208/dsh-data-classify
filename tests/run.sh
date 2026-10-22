@@ -21,7 +21,7 @@ A=$(node bin/cli.mjs --root tests/fixtures/absent/minimal --json 2>&1)
 NA=$(echo "$A" | python3 -c "
 import json,sys; d=json.load(sys.stdin)
 print(','.join((d.get('stats') or {}).get('notApplicable') or []))" 2>/dev/null)
-echo "$NA" | grep -q "CLASSIFY-SENSITIVE-UNMARKED" && ok "空缺样本：敏感规则不适用" || bad "条件规则未生效（$NA）"
+echo "$NA" | grep -q "CLASSIFY-SENSITIVE-UNMARKED" && ok "空缺样本：敏感规则不适用" || bad "条件规则未生效（${NA}）"
 echo ""; echo "  【语义一致性 + 法条】"
 python3 - <<'PY' && ok "4 条规则语义一致且引法条" || bad "有规则不合格"
 import json,glob,sys
